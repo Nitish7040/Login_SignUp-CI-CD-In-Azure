@@ -1,97 +1,319 @@
-/* Reset & base ------------------------------------- */
-* { box-sizing: border-box; }
-html,body { height:100%; }
-body {
-	margin: 0;
-	font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-	background: linear-gradient(180deg,#f6fbff 0%, #f0f6ff 100%);
-	color: #0f172a;
-	-webkit-font-smoothing:antialiased;
+/* -------------------------------------------
+   Modern Vertical Layout — Professional & Responsive
+------------------------------------------- */
+
+/* Base Reset & Setup */
+* {
+  box-sizing: border-box;
+  transition: all 0.25s ease;
 }
 
-.center { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:24px; }
-.container { max-width:920px; width:100%; padding:0 14px; }
-
-/* Brand ------------------------------------------- */
-.brand { text-align:center; margin-bottom:18px; }
-.brand h1 { margin:0; font-size:1.6rem; letter-spacing: -0.02em; }
-.brand .tag { margin:6px 0 0; color:#475569; }
-.brand.small h1 { font-size:1.2rem; }
-
-/* Card -------------------------------------------- */
-.card { background: #fff; border-radius:12px; box-shadow: 0 6px 20px rgba(2,6,23,0.08); padding:28px; }
-.home-card { text-align:center; padding:36px; }
-.form-card { max-width:420px; margin:0 auto; }
-
-h2 { margin:0 0 12px 0; font-size:1.25rem; }
-p { color:#475569; margin:8px 0 18px 0; }
-
-/* Buttons & links --------------------------------- */
-.btn { display:inline-block; padding:10px 16px; border-radius:8px; text-decoration:none; color:#0f172a; background:transparent; border:1px solid transparent; cursor:pointer; }
-.btn.primary { background: linear-gradient(90deg,#2563eb,#4f46e5); color:#fff; box-shadow: 0 6px 18px rgba(79,70,229,0.12); }
-.btn + .btn { margin-left:10px; }
-.link { color:#2563eb; text-decoration:none; margin-left:8px; font-size:0.95rem; }
-.muted { color:#64748b; text-align:center; margin-top:14px; }
-.small { font-size:0.9rem; }
-
-.actions { margin-top:16px; }
-
-/* Form -------------------------------------------- */
-form label { display:block; margin:12px 0 6px; font-weight:600; color:#0f172a; }
-.form-control, input[type="text"], input[type="password"], input[type="email"] {
-	width:100%; padding:12px 14px; border-radius:8px; border:1px solid #e6eef8; background:#fbfdff; font-size:1rem; color:#0f172a;
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Inter", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(145deg, #eef2ff 0%, #f9fafb 100%);
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* focus states for accessibility */
-.form-control:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
-	outline: 3px solid rgba(37,99,235,0.12);
-	border-color: #2563eb;
-	box-shadow: 0 4px 12px rgba(37,99,235,0.06);
-}
-.password-row { display:flex; gap:8px; align-items:center; }
-.password-row input { flex:1; }
-.toggle-password { padding:8px 10px; border-radius:8px; background:#eef2ff; border:1px solid #dbeafe; color:#3730a3; cursor:pointer; }
-
-.form-actions { display:flex; align-items:center; justify-content:space-between; margin-top:18px; }
-
-/* Toast ------------------------------------------- */
-.toast { position:fixed; right:20px; bottom:20px; background:#111827; color:#fff; padding:12px 16px; border-radius:10px; box-shadow:0 6px 20px rgba(2,6,23,0.2); opacity:0; transform:translateY(12px); transition:all .28s ease; z-index:9999; }
-.toast.show { opacity:1; transform:translateY(0); }
-
-/* Responsive -------------------------------------- */
-@media (max-width:640px) {
-	/* general mobile adjustments for portrait */
-	.center { align-items:flex-start; padding-top:36px; padding-bottom:36px; min-height:auto; }
-	.container { padding:0 12px; }
-	.card { padding:18px; border-radius:12px; }
-	.home-card { padding:22px; }
-	.form-card { padding:18px; width:100%; max-width:520px; }
-
-	/* stack actions and make buttons full-width for easier tapping */
-	.actions { display:flex; flex-direction:column; gap:12px; align-items:stretch; }
-	.actions .btn { width:100%; text-align:center; }
-
-	.form-actions { flex-direction:column; gap:12px; align-items:stretch; margin-top:16px; }
-	.form-actions .btn { width:100%; }
-	.form-actions .link { display:block; text-align:center; margin-left:0; }
-
-	/* on narrow screens, stack password row so toggle is below the input */
-	.password-row { flex-direction:column; align-items:stretch; }
-	.toggle-password { width:100%; }
-
-	/* increase touch targets */
-	input[type="text"], input[type="password"], input[type="email"] { padding:14px 16px; font-size:1.05rem; }
-
-	.brand h1 { font-size:1.15rem; }
+/* Main Container – centers everything vertically */
+.container {
+  max-width: 420px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+  padding: 40px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80vh;
+  animation: fadeIn 0.6s ease;
 }
 
-@media (max-width:380px) {
-	/* extra-small phones — tighten spacing */
-	.center { padding:18px; }
-	.card { padding:14px; }
-	.home-card { padding:18px; }
-	h2 { font-size:1.05rem; }
+/* -------------------------------------------
+   Brand / Header
+------------------------------------------- */
+.brand {
+  margin-bottom: 24px;
 }
 
-/* utility */
-.hidden { display:none !important; }
+.brand h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand .tag {
+  margin-top: 6px;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.brand.small h1 {
+  font-size: 1.3rem;
+}
+
+/* -------------------------------------------
+   Cards / Content Section
+------------------------------------------- */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.08);
+  padding: 32px;
+  width: 100%;
+  text-align: center;
+}
+
+.home-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 28px;
+}
+
+.form-card {
+  width: 100%;
+  text-align: left;
+  padding: 32px 28px;
+}
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+}
+
+p {
+  color: #475569;
+  margin: 10px 0 22px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* -------------------------------------------
+   Buttons & Links
+------------------------------------------- */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #0f172a;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.25);
+}
+
+.btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+}
+
+.link {
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  display: block;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------------------------
+   Forms
+------------------------------------------- */
+form {
+  width: 100%;
+}
+
+form label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.password-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.password-row input {
+  flex: 1;
+}
+
+.toggle-password {
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: #eef2ff;
+  border: 1px solid #dbeafe;
+  color: #3730a3;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.toggle-password:hover {
+  background: #c7d2fe;
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin-top: 22px;
+}
+
+.form-actions .btn {
+  width: 100%;
+}
+
+/* -------------------------------------------
+   Footer / Notes
+------------------------------------------- */
+footer {
+  margin-top: 28px;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* -------------------------------------------
+   Toast Notifications
+------------------------------------------- */
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #111827;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.35s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -------------------------------------------
+   Animations
+------------------------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------------------------
+   Responsive Design
+------------------------------------------- */
+@media (max-width: 640px) {
+  body {
+    padding: 20px;
+  }
+
+  .container {
+    padding: 28px 20px;
+    min-height: 90vh;
+  }
+
+  .brand h1 {
+    font-size: 1.4rem;
+  }
+
+  .form-card {
+    padding: 24px 20px;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    padding: 14px 16px;
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 20px 16px;
+  }
+
+  .brand h1 {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.05rem;
+  }
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
+}
