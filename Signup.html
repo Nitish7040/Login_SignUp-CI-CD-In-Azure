@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container center">
+    <header class="brand small">
+      <h1>Acme Auth Demo</h1>
+    </header>
+
+    <main class="card form-card">
+      <h2>Create account</h2>
+      <form id="signupForm" action="/signup" method="POST" novalidate>
+        <label for="signup-username">Username</label>
+        <input type="text" id="signup-username" name="username" required autocomplete="username">
+
+        <label for="signup-password">Password</label>
+        <div class="password-row">
+          <input type="password" id="signup-password" name="password" required autocomplete="new-password">
+          <button type="button" class="toggle-password" data-target="signup-password">Show</button>
+        </div>
+
+        <label for="signup-password2">Confirm password</label>
+        <input type="password" id="signup-password2" name="password2" required autocomplete="new-password">
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Sign Up</button>
+          <a class="link" href="./Login.html">Already have an account?</a>
+        </div>
+      </form>
+    </main>
+
+    <footer class="muted small">Demo only — accounts are saved to localStorage in this demo.</footer>
+  </div>
+
+  <script src="./Script.js"></script>
+</body>
+</html>
